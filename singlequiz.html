@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="singlequiz.css">
+</head>
+<body class=" bg-gradient-to-r from-blue-50 to-fuchsia-400 text-black justify-center items-center  font-semibold  shadow-2xl shadow-black w-150 mx-57 my-35">
+    <h1 class="font-bold text-3xl ml-2">Quiz:</h1>
+    <h1 class=" text-3xl  ml-2">Que.No:<span id="qno"></span><span id="que" ></span></h1> 
+   <input type="radio" name="options" onclick="check()" class="text-2xl ml-2">A:  <span id="op1" class="text-2xl "></span><br>
+ <input type="radio" name="options" onclick="check()" class="text-2xl ml-2">B: <span id="op2" class="text-2xl "></span><br>
+   <input type="radio" name="options" onclick="check()" class="text-2xl ml-2">C: <span id="op3"  class="text-2xl "></span><br>
+   <input type="radio" name="options" onclick="check()" class="text-2xl ml-2">D: <span id="op4"  class="text-2xl "></span><br>
+    <button onclick="previous()" class="bg-blue-400 m-2 rounded-2xl font-semibold p-2 "><--previous</button>
+<button onclick="next()" class="bg-green-400 m-2 rounded-2xl font-semibold p-2 ">Next--></button>
+
+    </button>
+    
+<script>
+    var listofQuestions=JSON.parse(localStorage.getItem("questions")) ??[]
+    var currentIndex=0
+    var score =0
+      setQuestion()
+     
+     function setQuestion(){
+        var question12=listofQuestions[currentIndex]
+        document.getElementById("qno").innerHTML =currentIndex+1
+        document.getElementById("que").innerHTML=question12.quesion
+        document.getElementById("op1").innerHTML=question12.a
+        document.getElementById("op2").innerHTML=question12.b
+        document.getElementById("op3").innerHTML=question12.c
+        document.getElementById("op4").innerHTML=question12.d
+
+
+     }
+     function next(){
+        if(currentIndex<listofQuestions.length-1){
+            currentIndex++
+        setQuestion()
+            
+            
+        }
+        else{
+        
+           
+             document.body.innerHTML="<h1 style=' display:flex; font-size: larger; justify-content: center; align-item:center;'>Score:"+score+"</h1>"
+          alert("no more questions and your score is="+score++)
+             
+        }
+            
+        }
+     
+     function previous(){
+      if(currentIndex<listofQuestions.length){
+       if(currentIndex<1){
+        alert("no more previous questions")
+       }
+       else{
+        currentIndex--
+        setQuestion()
+       }
+    
+      }
+    
+    }
+     function check(){
+        var radioButtons= document.getElementsByName("options")
+        var op1Value= document.getElementById("op1").innerText
+        var op2Value= document.getElementById("op2").innerText
+        var op3Value= document.getElementById("op3").innerText
+        var op4Value= document.getElementById("op4").innerText
+        for(var i=0;i<4;i++){
+            var button=radioButtons[i]
+            if(i==0 && button.checked){
+                if(listofQuestions[currentIndex].ans==op1Value){
+                    score++
+                }
+            }
+            if(i==1 && button.checked){
+                if(listofQuestions[currentIndex].ans==op2Value){
+                    score++
+                }
+            }
+            if(i==2 && button.checked){
+                if(listofQuestions[currentIndex].ans==op3Value){
+                    score++
+                }
+            }
+            if(i==3 && button.checked){
+                if(listofQuestions[currentIndex].ans==op4Value){
+                    score++
+                }
+            }
+        }
+     }
+</script>
+
+
+
+
+</body>
+</html>

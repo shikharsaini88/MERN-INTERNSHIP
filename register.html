@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    
+    <link rel="stylesheet" href="register.css">
+</head>
+<body class="bg-black">
+    <div class="flex items-center h-110 justify-center min-h-screen">
+<div class="bg-white  text-black  w-130 shadow-2xl shadow-gray-700 rounded 2xl p-8">
+    <h1 class="text-3xl text-center font-bold p-4">Register</h1>
+    <h1 id="mainmsg" class="text-2xl"></h1>
+Name:
+ <input class="w-full text-center px-2 py-2 border rounded-lg" type="text" placeholder="Enter name" id="uname1">
+ <h5 id="msg"></h5><br>
+ Username:
+ <input class="w-full text-center px-2 py-2 border rounded-lg" type="text" placeholder="Enter username" id="uname2">
+ <h5 id="msg"></h5><br>
+ Email ID:
+ <input class="w-full text-center px-2 py-2 border rounded-lg" type="text" placeholder="Enter Email" id="emailid">
+ <h5 id="msg"></h5><br>
+ Password:
+<input class="w-full text-center px-2 py-2 border rounded-lg" type="password" placeholder="Enter password" id="pass">
+ <h1 id="msg2"></h1><br>
+ <button onclick="Register()" class="w-full text-center p-2 bg-blue-600 mt-4 border rounded-lg">Submit</button>
+ <p class="text-2xl">Already have an account<br><a href="login1.html" class="text-blue-500 ">sign in</a></p>
+</div>
+    </div>
+    
+    
+    <script>
+        var registerdata=[]??[]
+
+function Register(){
+     
+    var Fname=document.getElementById("uname1").value
+    var uname=document.getElementById("uname2").value
+    var Email=document.getElementById("emailid").value
+    var password=document.getElementById("pass").value
+    var check=document.getElementById("msg")
+    var registerObject={
+        Fname:Fname,
+        uname:uname,
+        Email:Email,
+        password:password,
+        check:check
+
+    }
+    // registerdata.push(registerObject)
+    // localStorage.setItem("registerationlist",JSON.stringify(registerdata))
+//     document.getElementById("uname1").value=""
+//    document.getElementById("uname2").value=""
+//     document.getElementById("emailid").value=""
+//     document.getElementById("pass").value=""
+    
+
+   if(Fname==""){
+    check.innerHTML="please fill name first"
+    return
+   } else if(uname==""){
+    check.innerHTML="please fill username first"
+    return
+   } else if(Email==""){
+    check.innerHTML="please fill email first"
+    return;
+   } else if(password==""){
+    check.innerHTML="please fill password first"
+    return;
+   }
+   
+   
+   else{
+    alert(registerdata+"registration successful");
+    document.body.innerHTML="<h1 style='color:white;'> registration successful</h1><br><a href='login1.html' style='color:white; font-size:large; font-style:bold;'>Login</a>"
+   }
+    registerdata.push(registerObject)
+    localStorage.setItem("registerationlist",JSON.stringify(registerdata))
+    
+    }
+
+</script>
+</body>
+</html>

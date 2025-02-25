@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<style>
+    input{
+        background-color: black;
+        color: white;
+    }
+</style>
+<body>
+    <input type="text"  placeholder=" Enter username" id="uname"/><br>
+    <input type="text"  placeholder=" Enter  fullname" id="fullname"/><br>
+    <input type="text"  placeholder="emailid" id="emailid"/><br>
+    <input type="text"  placeholder=" Enter city" id="city"/><br>
+    
+    <button onclick=" saveUsername()">save</button>
+    <br>
+    <button onclick="showStudentData()">Show Student Data</button>
+    <div id="student-data" ></div>
+    <script>
+        var listOFStudents=[]
+        function saveUsername(){
+            var uname=document.getElementById("uname").value
+            var fullname=document.getElementById("fullname").value
+            var emailid=document.getElementById("emailid").value
+            var city=document.getElementById("city").value
+            var studentObject={
+                username: uname,
+                fullname: fullname,
+                emailid:emailid,
+                city:city
+            }
+            listOFStudents.push(studentObject)
+            localStorage.setItem("students",JSON.stringify(listOFStudents))
+            document.getElementById("uname").value=""
+             document.getElementById("fullname").value=""
+              document.getElementById("emailid").value=""
+               document.getElementById("city").value=""
+        }
+        function showStudentData(){
+            var dataInString= localStorage.getItem("students")
+            var listOFStudents=JSON.parse(dataInString)
+            
+     document.getElementById("student-data").innerHTML=listOFStudents.map((student,i) =>`<div style="box-shadow: 1px 1px 5px 1px gray;
+    padding: 20px; margin: 20px; >
+    <button onclick="deleteStudent(${i})">Delete</button>
+     <h1>Username: ${student.username}</h1>
+            <h1> Full Name: ${student.fullname}</h1>
+            <h1> Email ID:  ${student.emailid}</h1>
+            <h1> City: ${student.city}</h1></div>`
+        )
+        }
+        function deleteStudent(index){
+            listOFStudents.splice(index,1)
+            localStorage.setItem("students",JSON.stringify(listOFStudents))
+            showStudentData()
+
+        }
+    </script>
+</body>
+</html>

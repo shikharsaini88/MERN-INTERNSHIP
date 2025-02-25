@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Saved rollno:
+        <span id="rollno"></span>
+    </h1>
+    <h1>Saved Username:
+        <span id="uname"></span>
+    </h1>
+    <!-- <input type="text" placeholder="rollno" id="rollno">
+    <button onclick="saverollno()">save</button> -->
+    <script>
+        //         function saverollno(){
+        //     var rollno=document.getElementById("rollno").value
+        //     localStorage.setItem("rollno",rollno)
+        // }
+    </script>
+    <script>
+  var span=document.getElementById("rollno") 
+  var span=document.getElementById("uname")
+
+  span.innerHTML=localStorage.getItem("rollno")
+  span.innerHTML=localStorage.getItem("username")
+    </script>
+</body>
+</html>

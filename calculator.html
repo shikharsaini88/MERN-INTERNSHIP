@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./output.css" rel="stylesheet">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet"  href="calculate.css">
+</head>
+<body class="bg-black">
+     
+ 
+    <div class="pb-4 h-75 w-100 rounded-4xl shadow-xl shadow-blue-100 ml-30 text-white p-5 bg-black mt-20  pt-5">
+        <h1 class="flex justify-center items-center text-white text-3xl font-extrabold pb-4 pt-4">Calculator</h1>
+Enter <input type="text" placeholder="Enter your first No" id="e1" class=" "><br>
+Enter <input type="text" placeholder="Enter your Second No" id="e2">
+<div class=" bg-white text-2xl text-black   shadow-xl border-b-4 ">
+<button onclick="add()" class=" ">+</button>
+<button onclick="minus() " class="m-2">-</button>
+<button onclick="divide()" class="m-2">/</button>
+<button onclick="multiply()" class="m-2">*</button>
+<br>
+
+ Result:<input type="text" name="" id="result" class="text-black font-semibold">
+</div>
+    </div>
+    
+    <script>
+        function add(){
+ var no1=document.getElementById("e1").value
+ var no2=document.getElementById("e2").value
+ var sum=document.getElementById("result")
+ var no12=parseInt(no1)+parseInt(no2)
+  sum.value="your Answer:"+no12
+
+        }
+        function minus(){
+ var no1=document.getElementById("e1").value
+ var no2=document.getElementById("e2").value
+ var sum=document.getElementById("result")
+ var no12=parseInt(no1)-parseInt(no2)
+  sum.value="your Answer:"+no12
+
+        }
+        function divide(){
+ var no1=document.getElementById("e1").value
+ var no2=document.getElementById("e2").value
+ var sum=document.getElementById("result")
+ var no12=parseInt(no1)/parseInt(no2)
+  sum.value="your Answer:"+no12
+
+        }
+        function multiply(){
+ var no1=document.getElementById("e1").value
+ var no2=document.getElementById("e2").value
+ var sum=document.getElementById("result")
+ var no12=parseInt(no1)*parseInt(no2)
+   sum.value="your Answer:"+no12
+
+        }
+
+    </script>
+
+    
+</body>
+</html>

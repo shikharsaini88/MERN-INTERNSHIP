@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    input{
+        font-size: medium;
+    }
+    textarea{
+        font-size: large ;
+    }
+</style>
+<body>
+    
+    <textarea type="text" id="que" placeholder="enter your question"></textarea> <br>
+    <input type="text"   id="option1"/><br>
+    <input type="text"   id="option2"/><br>
+    <input type="text"  id="option3"/><br>
+    <input type="text"   id="option4"/><br>  
+    <input type="text"   id="answer"/><br>
+     <button onclick="savequestion()">display</button><br>
+    
+      <button onclick="showStudentData()">save</button>
+    <div id="question-data"></div>
+    <script src="question.js"></script>
+    </body>
+    </html>

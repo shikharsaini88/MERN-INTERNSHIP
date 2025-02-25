@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #list{
+        list-style: none;
+    }
+</style>
+<body>
+<input type="text" placeholder="search" id="searchlist" onkeyup="searchbar()" name="search">
+<ul id="list" >
+<li class="name ">Bhupendra</li>
+<li class="name">Daksh</li>
+<li class="name">Esha</li>
+<li class="name">Pawan</li>
+<li class="name">Pratik</li>
+<li class="name">Ram</li>
+<li class="name">Shikhar</li>
+<li class="name">Shyam</li>
+</ul>
+<script>
+    function searchbar(){
+ let input=document.getElementById("searchlist").value
+ input=input.toLowerCase();
+ let x= document.getElementsByClassName("name");
+ for(i=0;i<x.length;i++){
+ if( !x[i].innerHTML.toLowerCase().includes(input)){
+    x[i].style.display="none";
+    
+ }
+ else{
+    x[i].style.display="list-item";
+ }
+}
+    }
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    
+    <link rel="stylesheet" href="login1.css">
+</head>
+<body class="bg-black">
+    <div class="flex items-center justify-center min-h-screen">
+<div class="bg-white  text-black w-110 shadow-2xl shadow-gray-700 rounded 2xl p-8">
+    <h1 class="text-4xl text-center font-semibold p-6">LOGIN</h1>
+   
+    <h1 id="mainmsg" class="text-2xl"></h1>
+Username:
+ <input class="w-full text-center px-2 py-2 border rounded-lg" type="text" placeholder="Enter username" id="uname">
+ <h5 id="msg"></h5><br>
+
+ Password
+<input class="w-full text-center px-2 py-2 border rounded-lg" type="password" placeholder="Enter password" id="pass">
+ <h1 id="msg2"></h1><br>
+ <input type="radio" onclick="radiooption()" name="option">Admin
+ <input type="radio"onclick="radiooption()"name="option">Student 
+ <button onclick="login()" class="w-full text-center p-2 bg-blue-600 mt-4 border rounded-lg">Login</button>
+ <p class="text-2xl">Don`t have an account<br><a href="register.html" class="text-blue-500 ">Register here</a></p>
+
+ <h1 id="check3"></h1>
+</div>
+    </div>
+    <script>
+       var score
+        function login(){
+            var arr=JSON.parse(localStorage.getItem("registerationlist"))??[]
+            var currentdata=0
+            console.log(arr)
+            console.log(arr[currentdata].uname) 
+            for(var i=0; i<arr.length; i++){
+                
+                var usname=document.getElementById("uname").value
+            var pwd=document.getElementById("pass").value
+            var check=document.getElementById("msg").value
+            var check2=document.getElementById("msg2").value
+            var check3=document.getElementById("mainmsg").value
+            if(usname==""){
+       check.innerHTML="please fill username first"
+       check.style='color:red,'
+       return
+
+    }
+      if(pwd=="")
+       {
+        check2.innerHTML="please fill password first"  
+    
+        check2.style='color.red'
+        return
+        }
+        if(arr[currentdata].uname==usname && arr[currentdata].password==pwd){
+            if(score==1){
+                window.location="questionbank.html"
+                 alert("login success")
+                
+        }else if(score==2){
+            window.location="quiz.html"
+            alert("login success")
+            
+              
+            }
+            
+           
+            } else{
+                alert(arr+"login failed")
+                //  check3.innerHTML="login failed"
+                
+            }
+
+        }
+    }
+        function radiooption(){
+            var radioButtons=document.getElementsByName("option")
+            for(var i=0; i<2; i++){
+            if(i==0 && radioButtons[i].checked){
+                  score=1
+                  console.log(score)
+            }
+            if(i==1 && radioButtons[i].checked){
+                score=2
+                console.log(score)
+            }
+        }
+            
+    }
+       
+    </script>
