@@ -23,15 +23,13 @@ import DashBoard from "./assets/Socialmedia/DashBoard1"
 import DashBoard1 from "./assets/Socialmedia/DashBoard1"
 
 
+
 function App() {
  
   return( <>
-  {/* <LoginUser/> */}
-   {/* <DashBoard1/> */}
-  
-       <Header/>
+        <Header/>
   <Outlet/>
-  <Footer/>      
+  <Footer/>       
      {/* <Header /> */}
      
    {/* <Maincontent/>

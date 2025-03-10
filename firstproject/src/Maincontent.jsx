@@ -3,11 +3,11 @@
 
     return(<>
  
-  <section id="cover-title" className="  h-130 bg-[url(creative.jpg)] bg-no-repeat bg-cover">
-           <h2 className=" text-black justify-center items-center text-2xl font-mono pt-22 pl-3 animate-pulse">My journey into tech has been<br/> a blend of creativity,<br/> problem-solving,<br/> and community building.<br/> I`ve always been fascinated<br/> by how technology<br/> can transform ideas into <br/>tangible, user-friendly<br/> experiences.</h2>
+  <section id="cover-title" className="bg-black text-white border-b-2">
+           <h2 className=" text-white justify-center items-center text-2xl font-mono pt-22 pl-3 animate-pulse">My journey into tech has been<br/> a blend of creativity,<br/> problem-solving,<br/> and community building.<br/> I`ve always been fascinated<br/> by how technology<br/> can transform ideas into <br/>tangible, user-friendly<br/> experiences.</h2>
         </section>
      
-        <section id="Home" className="h-140 bg-[url(tree.jpg)] bg-no-repeat bg-cover border-t-4">
+        <section id="Home" className="bg-black text-white pb-15">
         <h1 className="text-4xl font-bold animate-pulse text-white">{Company}</h1> 
     <div className=" h-full flex justify-center items-center" id="homing">
        

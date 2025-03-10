@@ -1,14 +1,15 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-import Contact from './assets/Projectsreact/Contact'
+import 'boxicons'
+import Loginp from './assets/Socialmediap/Loginp'
 
 function App() {
   
-  return(<>
-   
-  <Contact/>
-  </>)
+
+  return (
+    <>
+  <Loginp/>
+    </>
+  )
 }
+
 export default App
