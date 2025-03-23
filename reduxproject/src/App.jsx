@@ -1,15 +1,10 @@
-import './App.css'
-import 'boxicons'
-import Loginp from './assets/Socialmediap/Loginp'
+import React from 'react'
 
-function App() {
-  
-
+export default function App() {
   return (
-    <>
-  <Loginp/>
-    </>
+    <div>
+     
+    </div>
   )
 }
 
-export default App

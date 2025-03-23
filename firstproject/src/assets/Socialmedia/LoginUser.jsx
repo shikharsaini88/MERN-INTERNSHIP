@@ -1,6 +1,6 @@
  import axios from "axios";
 import { useState } from "react"
-import { useNavigate, useNavigation } from "react-router"
+import { useNavigate} from "react-router"
 import { Link } from "react-router"
 import {usehistory} from 'react-dom';
 import DashBoard1 from "./DashBoard1";
@@ -9,7 +9,7 @@ export default function LoginUser() {
     const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
-  const history = useNavigate();
+  const navigate= useNavigate("");
   
   const handleLogin = (event) => {
     event.preventDefault();
@@ -19,7 +19,7 @@ export default function LoginUser() {
         if (user && user.email === password) {
           localStorage.setItem('username', username);
         
-           history("./DashBoard");
+           navigate("Dashboard");
          
          
           
