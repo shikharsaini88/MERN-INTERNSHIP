@@ -30,6 +30,7 @@ function App() {
         <Header/>
   <Outlet/>
   <Footer/>       
+  
      {/* <Header /> */}
      
    {/* <Maincontent/>
