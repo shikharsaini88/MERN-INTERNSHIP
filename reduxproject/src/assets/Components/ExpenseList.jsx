@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 export default function ExpenseList() {
+    axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
     const [transactions, setTransactions] = useState([]);
     const [filteredTransactions, setFilteredTransactions] = useState([]);
     const [remark, setRemark] = useState('');
@@ -10,7 +11,7 @@ export default function ExpenseList() {
     const [showForm, setShowForm] = useState(false);
 
     useEffect(() => {
-        axios.get('http://localhost:3002/Expense2')
+        axios.get('https://express-1-jm7c.onrender.com/Expense2')
             .then(response => {
                 setTransactions(response.data);
                 setFilteredTransactions(response.data);
@@ -19,22 +20,22 @@ export default function ExpenseList() {
     }, []);
 
     const addTransaction = () => {
-        const newTransaction = { remark, amount: parseFloat(amount), type };
-        axios.post('http://localhost:3002/Expense2', newTransaction)
-            .then(response => {
-                const updatedTransactions = [...transactions, response.data];
-                setTransactions(updatedTransactions);
-                setFilteredTransactions(updatedTransactions);
-                setRemark('');
-                setAmount('');
-                setType('');
-                setShowForm(false);
-            })
-            .catch(error => console.error(error));
+      const newTransaction = { remark, amount: parseFloat(amount), type };
+      axios.post('https://express-1-jm7c.onrender.com/Expense2', newTransaction)
+        .then(response => {
+          const updatedTransactions = [...transactions, response.data];
+          setTransactions(updatedTransactions);
+          setFilteredTransactions(updatedTransactions);
+          setRemark('');
+          setAmount('');
+          setType('');
+          setShowForm(false);
+        })
+        .catch(error => console.error(error));
     };
 
     const deleteTransaction = (id) => {
-      axios.delete(`http://localhost:3002/Expense2/${id}`)
+      axios.delete(`https://express-1-jm7c.onrender.com/Expense2/${id}`)
         .then(() => {
           const updatedTransactions = transactions.filter(t => t._id !== id);
           setTransactions(updatedTransactions);
