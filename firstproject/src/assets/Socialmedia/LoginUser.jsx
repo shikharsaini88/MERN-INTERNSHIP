@@ -1,9 +1,6 @@
  import axios from "axios";
 import { useState } from "react"
 import { useNavigate} from "react-router"
-import { Link } from "react-router"
-import {usehistory} from 'react-dom';
-import DashBoard1 from "./DashBoard1";
 
 export default function LoginUser() {
     const [username, setUsername] = useState('');
@@ -17,9 +14,9 @@ export default function LoginUser() {
       .then(response => {
         const user = response.data.find(user => user.username === username);
         if (user && user.email === password) {
-          localStorage.setItem('username', username);
+          localStorage.setItem('username', username)
         
-           navigate("Dashboard");
+           navigate("/Dashboard");
          
          
           
